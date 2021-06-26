@@ -1,6 +1,3 @@
-# esc2pdf
-A pure python library to convert ESC/P to PDF
-
 ==================
 esc2pdf 0.1
 ==================
@@ -15,7 +12,7 @@ esc2pdf 0.1
 Introduction
 ============
 
-**esc2pdf** is a Python library that interpretes 9-Pin ESC/P code and converts it into PDF:
+**esc2pdf** is a pure Python library that interpretes 9-Pin ESC/P code and converts it into PDF:
 
 * Version 0.1 is designed for Python 3.9, tested under Windows 10 and Ubuntu
 * In order to create PDF-files, it reuqires the `reportlab`__ package
