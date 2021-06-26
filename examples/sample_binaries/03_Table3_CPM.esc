@@ -1,0 +1,24 @@
+  CPM PAGE                  IDLE                             22-Apr-1990 15:38  
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ   Protocol # =           1                Copy Protocol #?     no            บ
+บ   Protocol Name?         Protocol_xy                                         บ
+บ   Cycles?                1                                                   บ
+บ   Count Time?            10.0                                                บ
+บ   2 Sigma Coincidence?   no                                                  บ
+บ   # Counts/Vial?         1                                                   บ
+บ   # Vials/Standard?      1                # Vials/Sample?      1             บ
+บ   1st Vial Background?   no                                                  บ
+บ   Radionuclide?          manual                                              บ
+บ                      LL     UL     Bkg    2 Sigma%   LCR                     บ
+บ      Region A:      0.0    100.   0.00       1.0     0                       บ
+บ      Region B:      10.    100.   0.00       1.0     0                       บ
+บ      Region C:      0.0    0.0    0.00       .00     0                       บ
+บ                                                                              บ
+บ   Qip?                   SIS                                                 บ
+บ   % of Reference?        no                                                  บ
+บ   Data Mode?             cpm                                                 บ
+บ                                                                              บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บ Please enter Protocol name (alphanumeric - 16 chars)                         บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+  F1-EXIT EDIT   F2-CLEAR ENTRY   F3-PRINT PROTOCOL                             

@@ -1,0 +1,26 @@
+  STATUS PAGE               IDLE                             22-Apr-1990 15:35  
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ   S#       TIME                   DPM         CPM        2S%                 บ
+บ   54       0.50   REGION A:       0.0        25.2      76.90                 บ
+บ                   REGION B:       0.0        23.8      58.58                 บ
+บ                   REGION C:                   0.0       0.00                 บ
+บ                                                                              บ
+บ                                                                              บ
+บ                                                                              บ
+บ   P#    NAME               P#    NAME               P#    NAME               บ
+บ   1  C  Protocol_xy        11 C  Protocol_xy        21 C  Protocol_xy        บ
+บ   2  C  Protocol_xy        12 C  Protocol_xy        22 C  Protocol_xy        บ
+บ   3  C  Protocol_xy        13 C  Protocol_xy        23    Protocol_xy        บ
+บ   4  C  Protocol_xy        14 C  Protocol_xy        24    Protocol_xy        บ
+บ   5     Protocol_xy        15 C  Protocol_xy        25    Protocol_xy        บ
+บ   6     Protocol_xy        16 C  Protocol_xy        26 C  Protocol_xy        บ
+บ   7     Protocol_xy        17 A  Protocol_xy        27    Protocol_xy        บ
+บ   8  C  Protocol_xy        18    Protocol_xy        28    Protocol_xy        บ
+บ   9  C  Protocol_xy        19 C  Protocol_xy        29 C  Protocol_xy        บ
+บ   10    Protocol_xy        20 C  Protocol_xy        30    Protocol_xy        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บ FLAGS: A = Active, C = Complete, P = Group Stat                              บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+  F1-EDIT PROT   F2-COUNT START/STOP   F3-SC CONTROL   F4-DECAY   F5-DATE/TIME  
+  F6-SPECTRUM    F7-GROUP PRIOSTAT     F8-COMPUTER OUTPUT         F10-etc       
+
