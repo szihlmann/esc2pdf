@@ -17,6 +17,9 @@ charCodeTbl = {
   "2":   b'\x32',
   "3":   b'\x33',
   "4":   b'\x34',
+  "5":   b'\x35',
+  "E":   b'\x45',
+  "F":   b'\x46',
   "K":   b'\x4b'
 }
 
@@ -41,7 +44,7 @@ def baseCharacterDecision(byte, Boxes, properties):
         return IDLE()
 
     else:
-        t_ReceiveText(byte, Boxes, properties.charCode, properties.FontSize)
+        t_ReceiveText(byte, Boxes, properties)
         return IDLE()
 
 # ================================= #
@@ -71,7 +74,19 @@ class ESC(State):
             return IDLE()
         elif byte == charCodeTbl['3']:
             return ESC_3()
-        elif byte == charCodeTbl['K']:
+        elif byte == charCodeTbl['4']: # Select italic font
+            properties.italicFont = True
+            return IDLE()
+        elif byte == charCodeTbl['5']: # Cancel italic font
+            properties.italicFont = False
+            return IDLE()
+        elif byte == charCodeTbl['E']: # Select bold font
+            properties.boldFont = True
+            return IDLE()
+        elif byte == charCodeTbl['F']: # Cancel bold font
+            properties.boldFont = False
+            return IDLE()
+        elif byte == charCodeTbl['K']: # ESC K state for 60-dpi graphics
             return ESC_K()
         else:
             print('Received unknown ESC-sequence: ESC + ' + byte.decode(properties.charCode, errors='replace'))

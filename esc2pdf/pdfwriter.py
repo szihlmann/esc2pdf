@@ -10,6 +10,9 @@ from reportlab.pdfbase.ttfonts import TTFont
 # Import a default fixed-pitch font supporting PC437 characters
 PackagePath = path.dirname(__file__)
 DFLT_FONT = 'Courier'
+DFLT_FONT_Bold = 'Courier-Bold'
+DFLT_FONT_Italic = 'Courier-Oblique'
+DFLT_FONT_Bold_Italic = 'Courier-BoldOblique'
 
 # Define page --> Global for all instances of PDFWriter()
 PageDef = pagedef(210, 297) # A4 by default
@@ -29,6 +32,9 @@ class PDFWriter(object):
         self._PDFfilename = filename # Filename to save PDF output as
         self.docProperties = pdfDocProperties()
         self._Font = DFLT_FONT
+        self._boldFont = DFLT_FONT_Bold
+        self._italicFont = DFLT_FONT_Italic
+        self._bold_italicFont = DFLT_FONT_Bold_Italic
  
     def addFlowable(self, Flowable):
         self._Flowables.append(Flowable) # Append incoming Flowable
@@ -44,13 +50,20 @@ class PDFWriter(object):
     def register_TTFont(self, FontPath, Name):
         pdfmetrics.registerFont(TTFont(Name, FontPath))
     
-    def selectFont(self, Font):
-        # get lists of native PDF-fonts an userdefined fonts
+    def selectFont(self, Font, FontType = 'Standard'):
+        # get lists of native PDF-fonts and userdefined fonts
         nativeFonts = list( _fontdata.standardFonts )
         userFonts   = list( pdfmetrics._fonts.keys() )
         allFonts    = nativeFonts + userFonts
         if Font in allFonts:
-            self._Font = Font
+            if FontType == 'Standard':
+                self._Font = Font
+            elif FontType == 'Bold':
+                self._boldFont = Font
+            elif FontType == 'Italic':
+                self._italicFont = Font
+            elif FontType == 'Bold_Italic':
+                self._bold_italicFont = Font
         else:
             print('Font \'' + Font + '\' is not registered. Keeping current font.')
 
@@ -60,6 +73,9 @@ class PDFWriter(object):
                     PageDef = PageDef,
                     overlay = self.overlay,
                     Font = self._Font,
+                    boldFont = self._boldFont,
+                    italicFont = self._italicFont,
+                    bold_italicFont = self._bold_italicFont,
                     docProperties = self.docProperties,
                     scaling = self._scaling
                     ) # Create PDF printer object

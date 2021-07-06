@@ -22,13 +22,13 @@ class Box(object):
 
 # Boxes for data storage
 class TextBox(Box):
-    def __init__(self, code = 'ibm437', fSize = 12):
+    def __init__(self, code = 'ibm437', fSize = 12, bold = False, italic = False):
         self.Text = ''
         self.charCode = code
         self.FontSize = fSize
+        self.boldFont = bold # By default, font is not bold
+        self.italicFont = italic # By default, font is not italic
         self.CmdPromptOutput = False # By default not printing to command line
-        #self.bold = False # Maybe in future versions
-        #self.italic = False # Maybe in future versions
 
     def add(self, byte):
         string = byte.decode(self.charCode, errors='replace') # Decode to text and save

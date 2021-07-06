@@ -9,7 +9,7 @@ from reportlab.pdfbase import pdfmetrics
 markerSize = 0.95 # 95% Marker-Fill for graphics
 
 class pdfDoc(object):
-    def __init__(self, fileName, PageDef, overlay, Font, docProperties, scaling=1):
+    def __init__(self, fileName, PageDef, overlay, Font, boldFont, italicFont, bold_italicFont, docProperties, scaling=1):
         self._pdfCanvas = Canvas(fileName, pagesize=(PageDef.width, PageDef.height)) # Create PDF Object
         self._pdfCanvas.setAuthor   (docProperties.Author)
         self._pdfCanvas.setTitle    (docProperties.Title)
@@ -22,7 +22,13 @@ class pdfDoc(object):
         self._PageCnt = 1
         self._LineSpacing = 0 # Will be defined with the first LineFeedBox
         self._Font = Font
+        self._standardFont = Font
+        self._italicFont = italicFont
+        self._boldFont = boldFont
+        self._bold_italicFont = bold_italicFont 
         self._FontSize = 0 # Will be defined with the first TextBox
+        self._bold = False # Will be defined with the first TextBox
+        self._italic = False # Will be defined with the first TextBox
         self._redefineFont() # Call this after setting font or fontsize
         self.overlay = overlay # overlay function
         self._prtOverlay()
@@ -32,6 +38,12 @@ class pdfDoc(object):
             BoxFontSize = Box.FontSize * self._scaling
             if BoxFontSize != self._FontSize: # Change FontSize if necessary
                 self._FontSize = BoxFontSize
+                self._redefineFont()
+            if Box.boldFont != self._bold:
+                self._bold = Box.boldFont
+                self._redefineFont()
+            if Box.italicFont != self._italic:
+                self._italic = Box.italicFont
                 self._redefineFont()
             self._pdfCanvas.drawString(self._Cursor.x, self._Cursor.y, Box.Text)
             self._moveTextWidth(Box.Text) # move cursor with typed text in x
@@ -85,6 +97,15 @@ class pdfDoc(object):
             self._Cursor.move(xStep, 0)         # Move 1 step in x
     
     def _redefineFont(self):
+        if self._italic and self._bold:
+            self._Font = self._bold_italicFont
+        elif self._italic:
+            self._Font = self._italicFont
+        elif self._bold:
+            self._Font = self._boldFont
+        else:
+            self._Font = self._standardFont
+
         self._pdfCanvas.setFont(self._Font, self._FontSize)
 
     def save(self):

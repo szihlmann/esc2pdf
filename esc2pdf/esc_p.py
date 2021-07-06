@@ -11,6 +11,8 @@ class deviceProperties(object):
         # Initialize with default values
         self.LineSpace = 12 # Default linespace in pts (equals 1/6 inch) (72 points per inch)
         self.FontSize = 12 # Default fontsize is 12 pts
+        self.boldFont = False # Default font is not boldFont
+        self.italicFont = False # Default font is not italic
         self.charCode = 'ibm437' # IBM Code Page PC437 
         self.IgnoreFormFeed = False # By default, FormFeedBoxes are accepted
         self.PageBreakKeywords = [] # None per default, can be multiple
