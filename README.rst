@@ -26,7 +26,7 @@ Limitations
 Currently, the following limitations apply to esc2pdf:
 
 * Only ESC/P code is supported (not ESC/P2).
-* Only <PlainText>, <ESC 2>, <ESC 3> and <ESC K nl nh> commands are supported. Simply because those were sufficient to interprete text and graphics in the initial application. It should be simple enough to extend the library to other ESC/P commands.
+* Only <PlainText>, <ESC 2>, <ESC 3>, <ESC 4>, <ESC 5>, <ESC E>, <ESC F> and <ESC K nl nh> commands are supported. Simply because those were sufficient to interprete text and graphics in the initial application. It should be simple enough to extend the library to other ESC/P commands.
 
 Initial use
 ===========
@@ -101,14 +101,16 @@ Make PDF::
 
 Including fonts
 ~~~~~~~~
-The font is a poperty of *PDFWriter*. Set your True-Type font after initializing the *PDFWriter*::
+The font is a property of *PDFWriter*. Set your True-Type font after initializing the *PDFWriter*::
 
 	PDF = PDFWriter('out.pdf', scaling=0.85)
 
 By registering and selecting the font::
 
 	PDF.register_TTFont('SomeFontFile.ttf', 'UserFont')
-	PDF.selectFont('UserFont')
+	PDF.selectFont('UserFont', FontType='Standard')
+
+Be reminded that different fonts must be used for standard, bold, italic and bold-italic styles. Use the *FontType* argument to specify which font to update. If not specified, *Standard* will be used. Options: *Standard*, *Bold*, *Italic*, *Bold_Italic*. If no font is specified, the native PDF fonts Courier, Courier-Bold, Courier-Oblique and Courier-BoldOblique are used by default.
 
 PDF Settings
 ~~~~~~~~
@@ -161,7 +163,7 @@ First creat said function::
         	canvas.drawString(x0,     y0, "This is a header")
         	canvas.drawString(x0+400, y0, "Page " + str(pageNo))
 
-Then, pass this function as argumtent to PDFWriter instance::
+Then, pass this function as argument to PDFWriter instance::
 
 	PDF.overlay = OverlayFunction
 
