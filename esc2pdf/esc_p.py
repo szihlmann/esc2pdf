@@ -22,7 +22,7 @@ class BoxList (list):
     # A simple copy of the List object with an add-on, which allows debug printing when a new entry is added.
     def __init__(self, *args):
         super().__init__(*args) # inherit __init__ from list object
-        self.CmdPromptOutput = False # by default no debug printing
+        self.CmdPromptOutput = False # By default, do not print interpreted ESC to command prompt
 
     def append(self, *args):
         # rewrite the append function. Runs the native append() plus printing new element 
@@ -39,10 +39,8 @@ class ESC_Device(object):
         # Initialize the components.
         self.state = IDLE() # Start with IDLE state
         self.Flowable = []  # Returnable Flowable. Empty list of boxes.
-        #self.Boxes = []     # Working Flowable. Empty list of boxes (Textbox, LineFeedBox, PageBreakBox or GraphicsBox).
-        self.Boxes = BoxList()
+        self.Boxes = BoxList() # Working Flowable. Empty list of boxes (Textbox, LineFeedBox, PageBreakBox or GraphicsBox).
         self.devProperties = deviceProperties() # Initialize device properties
-        self.CommandPromptOutput = False # By default, do not print interpreted ESC to command prompt
 
     def process_bytearray(self, array): # array is bytearray()
         self.Flowable = [] # Clear returnable flowable
