@@ -106,13 +106,21 @@ class PDFWriter(object):
             
             # Put boxes of flowable onto page(s)
             for box in Flowable:
-                if box.isType('PageBreakBox'): 
-                    if not self._currentPage.isEmpty(): # Add pagebreaks only if page not empty
-                        self._nextPage()
+                # Ignore pagebreaks, CR, LF if page is still empty
+                if self._currentPage.isEmpty():
+                    if box.isType('PageBreakBox'):
+                        continue # process next box
+                    if box.isType('LineFeedBox'):                 
+                        continue # process next box
+                    if box.isType('CarriageReturnBox'):
+                        continue # process next box
+
+                if box.isType('PageBreakBox'):
+                    self._nextPage() # Add page with PageBreakBox
                 else: # Send all other boxes to HighLevelPage
-                    self._currentPage.addBoxes( [box] )    
+                    self._currentPage.addBoxes( [box] )   
                     if ( not self._currentPage.hasSpace( [] ) ): # page full
-                        self._nextPage()  
+                        self._nextPage()
 
         # Clear processed flowables from memory
         self._Flowables.clear()
