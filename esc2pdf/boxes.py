@@ -51,7 +51,7 @@ class GraphicsBox(Box):
 
 class PageBreakBox(Box):
     def PrintToCmd(self):
-        print ('{Page Break}')
+        print ('{Page Break}', end = '\n')
 
 class LineFeedBox(Box):
     def __init__(self, space):
