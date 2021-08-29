@@ -17,6 +17,7 @@ Introduction
 * Version 0.1 is designed for Python 3.9, tested under Windows 10 and Ubuntu.
 * In order to create PDF-files, it relies on the `reportlab`__ package (needs to be installed). Tested with reportlab "3.5.55".
 * The package may convert a livestream of printer data but also complete files.
+* The central difference to many other packages out there is that the output in the PDF is *real text* and not just a dot-matrix.
 * Permissively licensed.
 __ http://www.reportlab.org/
 
