@@ -214,8 +214,15 @@ Although I have not tested any of those in detail, here is a list of other tools
 
     Outputs to PDF. Not open source. Requires complete data-file.
 
+-  `escpos-tools`__
+
+    Provides command line utilities (MIT licensed php implementation) to extract information from binary ESC/POS data.
+    Originally designed in connection to receipt printing.
+    Contains utilities to convert data to text (esc2text), html (esc2html) and images (escimages) but requires complete binary files.
+
 __ https://github.com/RWAP/PrinterToPDF/
 __ https://github.com/shokre/node-escprinter
 __ https://github.com/nzeemin/ukncbtl-utils/wiki/ESCParser
 __ https://github.com/zub2/dotprint
 __ http://www.columbia.edu/~em36/printfileprinter.html
+__ https://github.com/receipt-print-hq/escpos-tools
